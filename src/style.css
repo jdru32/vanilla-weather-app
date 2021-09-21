@@ -1,4 +1,39 @@
-/*Below, we are testing whether our files are linked*/
+body {
+  font-family: arial, sans-serif;
+}
+
+.weatherApp {
+  max-width: 600px;
+  /*Below, we are centering the app on the page*/
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
 h1 {
-  color: blue;
+  /*h1 is already a block element*/
+  color: rgb(135, 135, 135);
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 28px;
+  text-align: left;
+  /*This removes the space between the h1 and the ul*/
+  margin-bottom: 0;
+}
+
+ul {
+  /*This removes the added spacing from the list*/
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  /*This removes the bullet points*/
+  list-style: none;
+  color: rgb(135, 135, 135);
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+  text-align: left;
 }
