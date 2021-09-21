@@ -2,15 +2,6 @@ body {
   font-family: arial, sans-serif;
 }
 
-.weatherApp {
-  max-width: 600px;
-  /*Below, we are centering the app on the page*/
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
-}
-
 h1 {
   /*h1 is already a block element*/
   color: rgb(135, 135, 135);
@@ -36,4 +27,42 @@ li {
   font-weight: 100;
   line-height: 19px;
   text-align: left;
+}
+
+.weatherAppWrapper {
+ max-width: 600px;
+  /*Centering the app and repository link on the page*/
+  margin: 30px auto;
+}
+
+.weatherApp {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+.overview {
+  margin-bottom: 20px;
+}
+
+.weatherTemperature img {
+/*This is the format to use when targeting an element within a class*/
+margin-right: 5px;
+height: 64px;
+width: 64px;
+vertical-align: top;
+}
+
+.weatherTemperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  font-weight: 400;
+  /*This will set the line height to 64px*/
+  line-height: 1;
+}
+
+.weatherTemperature .units {
+  font-size: 16px;
+  position: relative;
+  top: -34px;
 }

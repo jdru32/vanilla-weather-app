@@ -19,18 +19,25 @@
     <!--Bootstrap works by having the body wrapped in a div with a class of container-->
     <div class="container">
       <!--Below, we're adding a div around the weather app so we can style a border-->
+      <div class="weatherAppWrapper">
       <div class="weatherApp">
+        <div class="overview">
       <h1>New York</h1>
       <ul>
         <li>Friday 05:00</li>
         <li>Clear</li>
       </ul>
+      </div>
       <div class="row">
         <!--The column below will take up 6 parts of 12, i.e. half the space-->
         <div class="col-6">
-          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Partly cloudy"/>
-          12°C | °F
-        </div>
+          <!--A clearfix is a way for an element to automatically clear or fix its elements. It's generally used in float layout where elements are floated to be stacked horizontally i.e. it's to align things next to each other-->
+          <div class="clearfix weatherTemperature">
+          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Partly cloudy" class="float-left"/>
+          <!--The float property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. It is removed from the normal flow of the page, but still remains part of the flow, in contrast to absolute positioning-->
+          <span class="float-left"><strong>12</strong><span class="units">°C | <a href="#">°F</a></span></span>
+          </div>
+        </div> 
         <div class="col-6">
           <ul>
             <li>
@@ -45,7 +52,9 @@
           </ul>
         </div>
       </div>
-       <!--Link to GitHub repository-->
+     
+      </div>
+        <!--Link to GitHub repository-->
       <small>
         <a href="https://github.com/jdru32/vanilla-weather-app" target=_blank>Open-source code</a> by Joanna Drury
       </small>
