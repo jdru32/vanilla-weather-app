@@ -18,9 +18,38 @@
   <body>
     <!--Bootstrap works by having the body wrapped in a div with a class of container-->
     <div class="container">
-      <h1>Hello world</h1>
-      <!--This tests whether Bootstrap works-->
-      <a href="" class="btn btn-primary">CLick me</a>
+      <!--Below, we're adding a div around the weather app so we can style a border-->
+      <div class="weatherApp">
+      <h1>New York</h1>
+      <ul>
+        <li>Friday 05:00</li>
+        <li>Clear</li>
+      </ul>
+      <div class="row">
+        <!--The column below will take up 6 parts of 12, i.e. half the space-->
+        <div class="col-6">
+          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Partly cloudy"/>
+          12°C | °F
+        </div>
+        <div class="col-6">
+          <ul>
+            <li>
+              Precipitation: 0%
+            </li>
+            <li>
+              Humidity: 73%
+            </li>
+            <li>
+              Wind: 2 km/h
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <!--Link to GitHub repository-->
+      <small>
+        <a href="https://github.com/jdru32/vanilla-weather-app" target=_blank>Open-source code</a> by Joanna Drury
+      </small>
     </div>
     <!--Below, we are linking this HTML document to the Javascript file in the src folder-->
     <script src="src/app.js"></script>
