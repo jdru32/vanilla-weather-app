@@ -65,10 +65,21 @@ li:first-letter {
   line-height: 1;
 }
 
-.units {
+.weatherTemperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+  text-decoration: none;
+}
+
+.weatherTemperature .inactive {
+  text-decoration: none;
+}
+
+.weatherTemperature .units {
   font-size: 16px;
   position: relative;
   top: -34px;
+  right: -5px;
 }
 
 .floatLeft {
