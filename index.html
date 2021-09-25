@@ -11,7 +11,9 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
-     <!--Below, we are linking this HTML document to the style sheet which is in the src folder. Bootstrap has a higher priority, so it should come before this-->
+    <!--Below, we are adding axios for api integration-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Below, we are linking this HTML document to the style sheet which is in the src folder. Bootstrap has a higher priority, so it should come before this-->
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather app</title>
   </head>
@@ -20,44 +22,50 @@
     <div class="container">
       <!--Below, we're adding a div around the weather app so we can style a border-->
       <div class="weatherAppWrapper">
-      <div class="weatherApp">
-        <div class="overview">
-      <h1>New York</h1>
-      <ul>
-        <li>Friday 05:00</li>
-        <li>Clear</li>
-      </ul>
-      </div>
-      <div class="row">
-        <!--The column below will take up 6 parts of 12, i.e. half the space-->
-        <div class="col-6">
-          <!--A clearfix is a way for an element to automatically clear or fix its elements. It's generally used in float layout where elements are floated to be stacked horizontally i.e. it's to align things next to each other-->
-          <div class="clearfix weatherTemperature">
-          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Partly cloudy" class="float-left"/>
-          <!--The float property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. It is removed from the normal flow of the page, but still remains part of the flow, in contrast to absolute positioning-->
-          <span class="float-left"><strong>12</strong><span class="units">°C | <a href="#">°F</a></span></span>
+        <div class="weatherApp">
+          <div class="overview">
+            <!--We have an empty html element here because it's where the city will go-->
+            <h1 id="city"></h1>
+            <ul>
+              <li>Friday 05:00</li>
+              <li id="description">Clear</li>
+            </ul>
           </div>
-        </div> 
-        <div class="col-6">
-          <ul>
-            <li>
-              Precipitation: 0%
-            </li>
-            <li>
-              Humidity: 73%
-            </li>
-            <li>
-              Wind: 2 km/h
-            </li>
-          </ul>
+          <div class="row">
+            <!--The column below will take up 6 parts of 12, i.e. half the space-->
+            <div class="col-6">
+              <!--A clearfix is a way for an element to automatically clear or fix its elements. It's generally used in float layout where elements are floated to be stacked horizontally i.e. it's to align things next to each other-->
+              <div class="clearfix weatherTemperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="Partly cloudy"
+                  class="float-left"
+                />
+                <!--The float property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. It is removed from the normal flow of the page, but still remains part of the flow, in contrast to absolute positioning-->
+                <div class="float-left">
+                  <!--Below, we now have an empty html element with the id temperature, because this is where current temperature will go-->
+                  <strong id="temperature"></strong
+                  ><span class="units">°C | <a href="#">°F</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-     
-      </div>
         <!--Link to GitHub repository-->
-      <small>
-        <a href="https://github.com/jdru32/vanilla-weather-app" target=_blank>Open-source code</a> by Joanna Drury
-      </small>
+        <small>
+          <a
+            href="https://github.com/jdru32/vanilla-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Joanna Drury
+        </small>
       </div>
     </div>
     <!--Below, we are linking this HTML document to the Javascript file in the src folder-->

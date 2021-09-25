@@ -23,6 +23,7 @@ li {
   /*This removes the bullet points*/
   list-style: none;
   color: rgb(135, 135, 135);
+  text-transform: capitalize;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -30,7 +31,7 @@ li {
 }
 
 .weatherAppWrapper {
- max-width: 600px;
+  max-width: 600px;
   /*Centering the app and repository link on the page*/
   margin: 30px auto;
 }
@@ -46,11 +47,11 @@ li {
 }
 
 .weatherTemperature img {
-/*This is the format to use when targeting an element within a class*/
-margin-right: 5px;
-height: 64px;
-width: 64px;
-vertical-align: top;
+  /*This is the format to use when targeting an element within a class*/
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+  vertical-align: top;
 }
 
 .weatherTemperature strong {
@@ -61,8 +62,12 @@ vertical-align: top;
   line-height: 1;
 }
 
-.weatherTemperature .units {
+.units {
   font-size: 16px;
   position: relative;
   top: -34px;
+}
+
+.float-left {
+  float: left;
 }
