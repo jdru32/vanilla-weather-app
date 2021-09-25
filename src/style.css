@@ -23,11 +23,14 @@ li {
   /*This removes the bullet points*/
   list-style: none;
   color: rgb(135, 135, 135);
-  text-transform: capitalize;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
   text-align: left;
+}
+
+li:first-letter {
+  text-transform: capitalize;
 }
 
 .weatherAppWrapper {
