@@ -45,9 +45,20 @@ function displayWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "9a2a40fbafb3cdf4386821927d8245af";
-let city = "budapest";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "9a2a40fbafb3cdf4386821927d8245af";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  //To access this api, we need to tell axios to get the URL
+  axios.get(apiUrl).then(displayWeather);
+}
 
-//To access this api, we need to tell axios to get the URL
-axios.get(apiUrl).then(displayWeather);
+function handleSubmit(event) {
+  //Prevents the page from reloading
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  //Once we have the value entered in the search bar, we put that value through the search function
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

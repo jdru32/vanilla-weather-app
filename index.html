@@ -23,12 +23,34 @@
       <!--Below, we're adding a div around the weather app so we can style a border-->
       <div class="weatherAppWrapper">
         <div class="weatherApp">
+          <!--mb-3 adds some margin at the bottom-->
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city"
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <!--w-100 makes the button a width of 100px-->
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
           <div class="overview">
             <!--We have an empty html element here because it's where the city will go-->
             <h1 id="city"></h1>
             <ul>
               <li>Last updated: <span id="date"></span></li>
-              <li id="description">Clear</li>
+              <li id="description"></li>
             </ul>
           </div>
           <div class="row">
@@ -36,9 +58,9 @@
             <div class="col-6">
               <!--A clearfix is a way for an element to automatically clear or fix its elements. It's generally used in float layout where elements are floated to be stacked horizontally i.e. it's to align things next to each other-->
               <div class="clearfix weatherTemperature">
-                <img src="" alt="" class="float-left" id="icon" />
-                <!--The float property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. It is removed from the normal flow of the page, but still remains part of the flow, in contrast to absolute positioning-->
-                <div class="float-left">
+                <img src="" alt="" class="floatLeft" id="icon" />
+                <!--The float property in CSS places an element on the left or right side of its container, allowing text and inline elements to wrap around it. It is removed from the normal flow of the page, but still remains part of the flow, in contrast to absolute positioning-->
+                <div class="floatLeft">
                   <!--Below, we now have an empty html element with the id temperature, because this is where current temperature will go-->
                   <strong id="temperature"></strong
                   ><span class="units">°C | <a href="#">°F</a></span>
