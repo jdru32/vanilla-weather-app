@@ -19,6 +19,39 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  //Need to create a new variable that will store the HTML for the forecast
+  //Best to use template literals here instead of quotes, as quotes will close off when they reach the first quote inside the HTML
+  //Here we are appending this code to the existing forecastHTML
+  let forecastHTML = `<div class="row">`;
+  //We now want to loop this bit of code so that we create 5 to 7 columns in our row
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  //Now we use a forEach loop, that applies a function to each entry in the array
+  days.forEach(function (day) {
+    //This function here will do what we want, which is appending a new column
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img
+        src="http://openweathermap.org/img/wn/01d@2x.png"
+        alt="sunny"
+        width="42"
+      />
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-max">18° </span>
+        <span class="weather-forecast-temperature-min">12°</span>
+      </div>
+    </div>
+  `;
+  });
+
+  //Now we are closing the row by adding a div endtag
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   //The function that is called when axios gets the URL
   let temperatureElement = document.querySelector("#temperature");
@@ -28,6 +61,7 @@ function displayWeather(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
   //We can redefine the global variable celsiusTemperature here
   celsiusTemperature = response.data.main.temp;
   //The temp is inside an object called main, inside an object called data
@@ -99,4 +133,6 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 //This will pre-load New York data whenever the page is refreshed
-search("New York");
+search("London");
+
+displayForecast();
