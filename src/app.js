@@ -120,41 +120,11 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  //Prevents the browser from trying to open the link in a new window
-  event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#temperature");
-  //remove active class from the celsius link
-  celsiusLink.classList.remove("active");
-  celsiusLink.classList.add("inactive");
-  fahrenheitLink.classList.add("active");
-  fahrenheitLink.classList.remove("inactive");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  //remove active class from the fahrenheit link
-  celsiusLink.classList.add("active");
-  celsiusLink.classList.remove("inactive");
-  fahrenheitLink.classList.remove("active");
-  fahrenheitLink.classList.add("inactive");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
 //These variables are global, and therefore accessible inside all functions
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 //This will pre-load New York data whenever the page is refreshed
 search("London");
