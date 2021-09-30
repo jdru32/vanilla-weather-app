@@ -19,33 +19,47 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  return day;
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   //Need to create a new variable that will store the HTML for the forecast
   //Best to use template literals here instead of quotes, as quotes will close off when they reach the first quote inside the HTML
   //Here we are appending this code to the existing forecastHTML
   let forecastHTML = `<div class="row">`;
-  //We now want to loop this bit of code so that we create 5 to 7 columns in our row
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   //Now we use a forEach loop, that applies a function to each entry in the array
-  days.forEach(function (day) {
-    //This function here will do what we want, which is appending a new column
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-      <div class="weather-forecast-date">${day}</div>
+  forecast.forEach(function (forecastDay, index) {
+    //Here we have a second parameter, called index, and this is the index of the array
+    if (index < 6) {
+      //This function here will do what we want, which is appending a new column
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
       <img
-        src="http://openweathermap.org/img/wn/01d@2x.png"
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
         alt="sunny"
         width="42"
       />
       <div class="weather-forecast-temperatures">
-        <span class="weather-forecast-temperature-max">18° </span>
-        <span class="weather-forecast-temperature-min">12°</span>
+        <span class="weather-forecast-temperature-max">${Math.round(
+          forecastDay.temp.max
+        )}° </span>
+        <span class="weather-forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
       </div>
     </div>
   `;
+    }
   });
 
   //Now we are closing the row by adding a div endtag
@@ -54,7 +68,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let lon = coordinates.lon;
   let lat = coordinates.lat;
   let apiKey = "9a2a40fbafb3cdf4386821927d8245af";
