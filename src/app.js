@@ -92,7 +92,7 @@ function displayWeather(response) {
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
   //OpenWeather provides dt or date time
   //We are sending the timestamp from OpenWeather to our formatDate function which will turn dt into date and time
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
