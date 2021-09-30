@@ -19,7 +19,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   //Need to create a new variable that will store the HTML for the forecast
   //Best to use template literals here instead of quotes, as quotes will close off when they reach the first quote inside the HTML
@@ -52,6 +53,15 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let lon = coordinates.lon;
+  let lat = coordinates.lat;
+  let apiKey = "9a2a40fbafb3cdf4386821927d8245af";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(response) {
   //The function that is called when axios gets the URL
   let temperatureElement = document.querySelector("#temperature");
@@ -79,6 +89,7 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -134,5 +145,3 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 //This will pre-load New York data whenever the page is refreshed
 search("London");
-
-displayForecast();
