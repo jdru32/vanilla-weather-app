@@ -96,7 +96,6 @@ function search(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
 
@@ -109,6 +108,7 @@ function searchCurrentLocation(location) {
 
 function callForLocation(event) {
   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
+  cityInputElement.value = "";
 }
 
 let button = document.querySelector("#current-location-button");
@@ -117,6 +117,8 @@ button.addEventListener("click", callForLocation);
 let celsiusTemperature = null;
 
 let apiKey = "9a2a40fbafb3cdf4386821927d8245af";
+
+let cityInputElement = document.querySelector("#city-input");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
