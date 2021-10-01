@@ -1,6 +1,20 @@
-function formatDay(timestamp) {
+function formatDay(timestamp, index) {
+  if (index === 0) {
+    return "Today";
+  }
+  if (index === 1) {
+    return "Tomorrow";
+  }
   let date = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let day = days[date.getDay()];
   return day;
 }
@@ -10,11 +24,14 @@ function displayFutureForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 4) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
-      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        `<div class="col-3">
+      <div class="weather-forecast-date">${formatDay(
+        forecastDay.dt,
+        index
+      )}</div>
       <img
         src="https://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
@@ -67,6 +84,7 @@ function formatDate(timestamp) {
 }
 
 function displayWeather(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
