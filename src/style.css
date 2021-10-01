@@ -3,24 +3,20 @@ body {
 }
 
 h1 {
-  /*h1 is already a block element*/
   color: rgb(135, 135, 135);
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
   text-align: left;
-  /*This removes the space between the h1 and the ul*/
   margin-bottom: 0;
 }
 
 ul {
-  /*This removes the added spacing from the list*/
   margin: 0;
   padding: 0;
 }
 
 li {
-  /*This removes the bullet points*/
   list-style: none;
   color: rgb(135, 135, 135);
   font-size: 16px;
@@ -35,7 +31,6 @@ li:first-letter {
 
 .weatherAppWrapper {
   max-width: 600px;
-  /*Centering the app and repository link on the page*/
   margin: 30px auto;
 }
 
@@ -50,7 +45,6 @@ li:first-letter {
 }
 
 .weatherTemperature img {
-  /*This is the format to use when targeting an element within a class*/
   margin-right: 5px;
   height: 64px;
   width: 64px;
@@ -61,7 +55,6 @@ li:first-letter {
   color: rgb(33, 33, 33);
   font-size: 64px;
   font-weight: 400;
-  /*This will set the line height to 64px*/
   line-height: 1;
 }
 
